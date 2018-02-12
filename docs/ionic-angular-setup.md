@@ -33,7 +33,7 @@ import 'time-ago-web-component';                        // add this import
 When you've performed both steps, your ```app.module.ts``` should look like this.
 ```
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; // add this import
-import 'star-rating-web-component';                     // add this import
+import 'time-ago-web-component';                        // add this import
 
 @NgModule({
   declarations: [],
@@ -41,7 +41,7 @@ import 'star-rating-web-component';                     // add this import
   bootstrap: [],
   entryComponents: [],
   providers: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] // add this line
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]                     // add this line
 })
 export class AppModule {}
 ```
