@@ -21,7 +21,7 @@ You entered this page <time-ago [time]="now"                    // in template
 You entered this page less than 5 seconds ago.                  // output (updates automatically)
 ```
 
-### Options
+## Options
 
 #### seconds
 Boolean flag, default value false. If you set it to true, the time-ago expression will include seconds when appropriate.
