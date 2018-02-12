@@ -10,14 +10,16 @@ import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 })
 export class TimeAgo {
 
-  @Prop() time: Date | string  | number = '';
+  @Prop() time: Date | string  | number;
   @Prop() seconds: boolean = false;
+  @Prop() nosuffix: boolean = false;
   //
   @State() refreshToggle: boolean = true;
   //
   private agoExpression: string;
 
   componentWillLoad() {
+    console.log(this.time);
     this.setAgoExpression();
     this.setRefreshTimer();
   } 
@@ -42,12 +44,16 @@ export class TimeAgo {
   // modify this if you want different prefix, suffix, etc., in the Time Ago Expression
   private setAgoExpression() {
     let expression: string;
-    if (this.seconds) {
-      expression = distanceInWordsToNow(this.time, {includeSeconds: true}) + ' ago';
-    } else {
-      expression = distanceInWordsToNow(this.time, {includeSeconds: false}) + ' ago';
+    let suffix = ' ago';
+    if (this.nosuffix) {
+      suffix = '';
     }
-    this.agoExpression = expression;
+    if (this.seconds) {
+      expression = distanceInWordsToNow(this.time, {includeSeconds: true});
+    } else {
+      expression = distanceInWordsToNow(this.time, {includeSeconds: false});
+    }
+    this.agoExpression = expression + suffix;
   }
 
   // calculates the amount of time to wait before the next refresh

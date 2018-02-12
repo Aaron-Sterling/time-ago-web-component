@@ -38,6 +38,7 @@ declare global {
   }
   namespace JSXElements {
     export interface TimeAgoAttributes extends HTMLAttributes {
+      nosuffix?: boolean;
       seconds?: boolean;
       time?: Date | string  | number;
     }
