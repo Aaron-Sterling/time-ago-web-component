@@ -1,6 +1,6 @@
 # Time Ago web component
 
-Next page: [Setup](./docs/setup)
+Next page: [Setup](./docs/setup.md)
 
 Framework-independent Time Ago "pipe." Web component that works with Ionic, Angular, React, Vue, vanilla Javascript, etc.  Built with Stencil.js and the date-fns function ```distanceInWordsToNow```.
 
@@ -30,4 +30,4 @@ Boolean flag, default value false. If you set it to true, the time-ago expressio
 Boolean flag, default value false. If you set it to true, the time-ago expression will not contain "ago" at the end.
 
 
-Next page: [Setup](docs/setup)
+Next page: [Setup](./docs/setup.md)
