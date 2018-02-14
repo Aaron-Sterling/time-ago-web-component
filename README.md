@@ -21,13 +21,16 @@ You entered this page <time-ago [time]="now"                    // in template
 You entered this page less than 5 seconds ago.                  // output (updates automatically)
 ```
 
-## Options
+### Options
 
 #### seconds
 Boolean flag, default value false. If you set it to true, the time-ago expression will include seconds when appropriate.
 
-#### nosuffix
-Boolean flag, default value false. If you set it to true, the time-ago expression will not contain "ago" at the end.
+#### append
+String, default value ' ago'. The value of append will be appended to the time-ago expression.
 
+#### prepend
+
+String, default value is the empty string. The value of prepend will be prepended to the time-ago expression.
 
 Next page: [Setup](./docs/setup.md)
