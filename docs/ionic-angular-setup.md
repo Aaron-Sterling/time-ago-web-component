@@ -57,9 +57,9 @@ If you are lazy loading, import just the web component in ```app.module.ts```, a
 
 ## Step 2: Tell ionic-app-scripts to include the component in the build
 
-Create or modify your ```copy.config.js``` file.  This file tells ionic app-scripts to include extra content when it buiklds an Ionic app. If you are creating the file, put it in a folder named ```config``` that is at the same directory level as your ```src``` folder.
+Create or modify your ```copy.config.js``` file.  This file tells ionic app-scripts to include extra content when it builds an Ionic app. If you are creating the file, put it in a folder named ```config``` that is at the same directory level as your ```src``` folder.
 
-Put this inside ````config\copy.config.js```:
+Put this inside ```config\copy.config.js```:
 ```
 module.exports = {
     copyTimeAgoWebComponent: {
