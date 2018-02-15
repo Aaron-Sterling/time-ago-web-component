@@ -3,6 +3,8 @@ import { Component, Prop, State } from '@stencil/core';
 import differenceInMinutes from 'date-fns/difference_in_minutes';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 
+import * as defaults from '../defaults';
+
 @Component({
   tag: 'time-ago',
   styleUrl: 'time-ago.css',
@@ -11,15 +13,15 @@ import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 export class TimeAgo {
 
   @Prop() time: Date | string  | number;
-  @Prop() seconds: boolean = false;
-  @Prop() nosuffix: boolean = false;
+  @Prop() seconds: boolean = defaults.SECONDS_DEFAULT;
+  @Prop() append: string = defaults.TIME_AGO_APPEND_DEFAULT;
+  @Prop() prepend: string = defaults.TIME_AGO_PREPEND_DEFAULT;
   //
   @State() refreshToggle: boolean = true;
   //
   private agoExpression: string;
 
   componentWillLoad() {
-    console.log(this.time);
     this.setAgoExpression();
     this.setRefreshTimer();
   } 
@@ -44,16 +46,12 @@ export class TimeAgo {
   // modify this if you want different prefix, suffix, etc., in the Time Ago Expression
   private setAgoExpression() {
     let expression: string;
-    let suffix = ' ago';
-    if (this.nosuffix) {
-      suffix = '';
-    }
     if (this.seconds) {
       expression = distanceInWordsToNow(this.time, {includeSeconds: true});
     } else {
       expression = distanceInWordsToNow(this.time, {includeSeconds: false});
     }
-    this.agoExpression = expression + suffix;
+    this.agoExpression = this.prepend + expression + this.append;
   }
 
   // calculates the amount of time to wait before the next refresh
