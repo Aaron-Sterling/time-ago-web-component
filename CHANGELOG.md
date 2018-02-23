@@ -1,5 +1,9 @@
 # Changelog
 
+#### 1.2.1 (22 Feb 2018)
+
+Added ES5 support.
+
 ### 1.2.0 (22 Feb 2018)
 
 Updated to Stencil 0.6.6.
