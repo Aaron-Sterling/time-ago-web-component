@@ -3,7 +3,13 @@ import { Component, Prop, State } from '@stencil/core';
 import differenceInMinutes from 'date-fns/difference_in_minutes';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 
-import * as defaults from '../defaults';
+import * as defaults from '../default-values';
+
+// Time Ago web component
+// (c) 2018 by Aaron Sterling
+// MIT license
+// 
+// Framework-independent "pipe" (web component) that provides distance in words from a date until now
 
 @Component({
   tag: 'time-ago',
@@ -45,12 +51,11 @@ export class TimeAgo {
 
   // modify this if you want different prefix, suffix, etc., in the Time Ago Expression
   private setAgoExpression() {
-    let expression: string;
+    let options = { includeSeconds: false };
     if (this.seconds) {
-      expression = distanceInWordsToNow(this.time, {includeSeconds: true});
-    } else {
-      expression = distanceInWordsToNow(this.time, {includeSeconds: false});
-    }
+      options = { includeSeconds: true };
+    } 
+    const expression = distanceInWordsToNow(this.time, options);
     this.agoExpression = this.prepend + expression + this.append;
   }
 

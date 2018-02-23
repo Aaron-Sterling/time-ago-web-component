@@ -1,7 +1,8 @@
 exports.config = {
   namespace: 'time-ago',
   generateDistribution: true,
-  generateWWW: false
+  generateWWW: false,
+  serviceWorker: false
 };
 
 exports.devServer = {
